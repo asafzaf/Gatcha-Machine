@@ -3,6 +3,10 @@
 #include "CapsuleType.h"
 #include "ShellColor.h"
 
+// This project made by Asaf Zafrir (205929029)
+
+//---        Capsule.h          ---//
+
 class Capsule : public ShellColor {
 protected:
 	string m_name;
@@ -11,11 +15,14 @@ protected:
 	CapsuleType* m_type; // really (*) - pointer ?
 
 public:
+	//---   C'tors & D'tors   ---//
 	Capsule();
-	~Capsule();
+	virtual ~Capsule() = 0;
 
+	//---       Methods       ---//
 	virtual float CalculateRarity() = 0;
 
+	//---  Getters & Setters  ---//
 	CapsuleType* getType() { return m_type; }
 
 	string getName() { return m_name; }

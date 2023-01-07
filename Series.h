@@ -1,5 +1,9 @@
 #pragma once
 
+// This project made by Asaf Zafrir (205929029)
+
+//---        Series.h          ---//
+
 enum Series {
 	None,
 	Dragon_Ball_Z,

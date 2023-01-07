@@ -2,6 +2,10 @@
 #include "Capsule.h"
 #include "Figure.h"
 
-class Toy : public Capsule, public Figure {
+// This project made by Asaf Zafrir (205929029)
 
+//---        Toy.h          ---//
+
+class Toy : public Capsule, public Figure {
+	
 };
