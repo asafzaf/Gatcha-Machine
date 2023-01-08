@@ -6,21 +6,30 @@
 
 //---        GatchaMachine.h          ---//
 
-class GatchaMachine {
+class GatchaMachine : public ShellColor {
 private:
 	Series m_theme;
 	int m_capsuleCost;
 	Capsule** m_capsules;
 	Capsule** m_ExtraCapsules;
 public:
-	//---   C'tors & D'tors   ===//
+	//---   C'tors & D'tors   ---//
 	GatchaMachine();
+	GatchaMachine(string color);
 	~GatchaMachine();
 
 	//---       Methods       ---//
 	Capsule RollForCapsule(int num);
 	int InsertCapsule(Capsule capsule);
 
-	//---  Getters & Setters  ===//
+	//---  Getters & Setters  ---//
+	Series getTheme() { return m_theme; }
+	void setTheme(Series theme) { m_theme = theme; }
 
+	int getCapsuleCost() { return m_capsuleCost; }
+	void setCapsuleCost(int cost) { m_capsuleCost = cost; }
+
+	Capsule** getCapsulesArray() { return m_capsules; }
+
+	Capsule** getExtrasArray() { return m_ExtraCapsules; }
 };

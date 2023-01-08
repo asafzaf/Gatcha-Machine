@@ -20,10 +20,12 @@ public:
 	virtual ~Capsule() = 0;
 
 	//---       Methods       ---//
-	virtual float CalculateRarity() = 0;
+	//virtual float CalculateRarity();
 
 	//---  Getters & Setters  ---//
 	CapsuleType* getType() { return m_type; }
 
 	string getName() { return m_name; }
+
+	int getWorth() { return m_worth; }
 };

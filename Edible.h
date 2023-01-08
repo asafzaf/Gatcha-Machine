@@ -10,10 +10,10 @@ protected:
 	string m_flavor;
 
 public:
-	//---   C'tors & D'tors   ===//
+	//---   C'tors & D'tors   ---//
 	Edible();
 	virtual ~Edible() = 0;
 
-	//---  Getters & Setters  ===//
+	//---  Getters & Setters  ---//
 	string getflavor() { return m_flavor; }
 };

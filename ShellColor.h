@@ -14,6 +14,7 @@ protected:
 public:
 	//---   C'tors & D'tors   ===//
 	ShellColor();
+	ShellColor(string color);
 	virtual ~ShellColor() = 0;
 
 	//---  Getters & Setters  ===//

@@ -20,7 +20,7 @@ public:
 	~Player();
 
 	//---       Methods       ---//
-	void PlayMachine(GatchaMachine);
+	//void PlayMachine(GatchaMachine);
 	int CalculatEarning();
 
 	//---  Getters & Setters  ---//
