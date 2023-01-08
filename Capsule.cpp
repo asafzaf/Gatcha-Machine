@@ -4,6 +4,6 @@
 
 //---        Capsule.cpp          ---//
 
-Capsule::Capsule() : ShellColor() {
+Capsule::Capsule(string name, Rarity rarity, CapsuleType type) : ShellColor() {
 
 }

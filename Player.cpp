@@ -34,6 +34,7 @@ Player::~Player() {
 //
 //}
 
+
 int Player::CalculatEarning() {
 	int result = 0;
 	Capsule** tempCapsulesWon = getCapsuleWon();

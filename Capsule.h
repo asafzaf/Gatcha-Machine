@@ -12,18 +12,17 @@ protected:
 	string m_name;
 	int m_worth;
 	Rarity m_rarity;
-	CapsuleType* m_type; // really (*) - pointer ?
+	CapsuleType m_type; // really (*) - pointer ?
 
 public:
 	//---   C'tors & D'tors   ---//
-	Capsule();
-	virtual ~Capsule() = 0;
+	Capsule(string name, Rarity rarity, CapsuleType type);
 
 	//---       Methods       ---//
 	//virtual float CalculateRarity();
 
 	//---  Getters & Setters  ---//
-	CapsuleType* getType() { return m_type; }
+	CapsuleType getType() { return m_type; }
 
 	string getName() { return m_name; }
 

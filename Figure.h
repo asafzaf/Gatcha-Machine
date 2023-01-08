@@ -11,9 +11,8 @@ protected:
 
 public:
 	//---   C'tors & D'tors   ===//
-	Figure();
-	virtual ~Figure() = 0;
+	Figure(Series theme);
 
 	//---  Getters & Setters  ===//
-	Series getCategory() { return m_theme; }
+	virtual Series getCategory() = 0;
 };
