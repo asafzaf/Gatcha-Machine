@@ -15,8 +15,9 @@ public:
 	//---   C'tors & D'tors   ===//
 	ShellColor();
 	ShellColor(string color);
-	virtual ~ShellColor() = 0;
+	~ShellColor();
 
 	//---  Getters & Setters  ===//
-	string getColor() { return m_color; }
+	virtual string getColor() = 0;
+
 };

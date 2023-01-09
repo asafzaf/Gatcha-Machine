@@ -14,13 +14,13 @@ private:
 	Capsule** m_ExtraCapsules;
 public:
 	//---   C'tors & D'tors   ---//
-	GatchaMachine();
-	GatchaMachine(string color);
+	GatchaMachine(Series theme, int cost);
+	GatchaMachine(string color, int cost);
 	~GatchaMachine();
 
 	//---       Methods       ---//
-	Capsule RollForCapsule(int num);
-	int InsertCapsule(Capsule capsule);
+	Capsule* RollForCapsule();
+	void InsertCapsule(Capsule* capsule);
 
 	//---  Getters & Setters  ---//
 	Series getTheme() { return m_theme; }
@@ -32,4 +32,6 @@ public:
 	Capsule** getCapsulesArray() { return m_capsules; }
 
 	Capsule** getExtrasArray() { return m_ExtraCapsules; }
+
+	string getColor() override { return m_color; }
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Capsule.h"
+#include "GatchaMachine.h"
 
 // This project made by Asaf Zafrir (205929029)
 
@@ -20,8 +21,10 @@ public:
 	~Player();
 
 	//---       Methods       ---//
-	//void PlayMachine(GatchaMachine);
+	void PlayMachine(GatchaMachine& machine);
 	int CalculatEarning();
+	int PrintANDchooseMachineIndex(GatchaMachine** machines);
+	const char* TextSeries(Series series);
 
 	//---  Getters & Setters  ---//
 	string getName() { return m_name; }

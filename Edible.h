@@ -5,15 +5,17 @@
 
 //---        Edible.h          ---//
 
+using namespace std;
+
 class Edible {
 protected:
 	string m_flavor;
 
 public:
 	//---   C'tors & D'tors   ---//
-	Edible();
-	virtual ~Edible() = 0;
+	Edible(string flavor);
+	virtual ~Edible();
 
 	//---  Getters & Setters  ---//
-	string getflavor() { return m_flavor; }
+	virtual string getflavor() = 0;
 };

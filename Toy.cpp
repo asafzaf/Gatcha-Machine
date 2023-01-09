@@ -4,4 +4,4 @@
 
 //---        Toy.cpp          ---//
 
-Toy::Toy(string name, Rarity rarity, CapsuleType type, Series theme) : Capsule(name, rarity, type), Figure(theme) {}
+Toy::Toy(string name, Rarity rarity, CapsuleType type, Series theme, string color) : Capsule(name, rarity, type, color), Figure(theme) {}

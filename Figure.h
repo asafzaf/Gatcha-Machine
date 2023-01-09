@@ -16,3 +16,4 @@ public:
 	//---  Getters & Setters  ===//
 	virtual Series getCategory() = 0;
 };
+
