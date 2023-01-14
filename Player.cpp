@@ -17,7 +17,7 @@ Player::Player() {
 	cin >> m_money;
 	m_capsulesWon = new Capsule * [50];
 	for (int i = 0; i < 50; i++) {
-		m_capsulesWon = nullptr;
+		m_capsulesWon[i] = nullptr;
 	}
 	cout << "Player created successfully!" << endl;
 }
@@ -31,8 +31,8 @@ Player::~Player() {
 	cout << "Player deleted successfully!" << endl;
 }
 
-void Player::PlayMachine(GatchaMachine& machine) {
-	Capsule** tempArray = machine.getCapsulesArray();
+void Player::PlayMachine(GatchaMachine* machine) {
+	Capsule** tempArray = machine->getCapsulesArray();
 	int counter = 0;
 	for (int i = 0; i < 10; i++) {
 		if (tempArray[i] == nullptr)
@@ -43,19 +43,29 @@ void Player::PlayMachine(GatchaMachine& machine) {
 		return;
 	}
 	else {
-		Capsule* capsule = machine.RollForCapsule();
-
+		Capsule* capsule = machine->RollForCapsule();
+		cout << "Got a capsule!" << endl;
+		Capsule** capsules_won = getCapsuleWon();
+		int index = 0;
+		while (capsules_won[index] != nullptr) {
+			index++;
+		}
+		capsules_won[index] = capsule;
+		setCapsulesWon(capsules_won);
 	}
 }
 
-int Player::CalculatEarning() {
-	int result = 0;
+float Player::CalculatEarning() {
+	int result_cost = 0;
+	float result_worth = 0;
 	Capsule** tempCapsulesWon = getCapsuleWon();
 	for (int i = 0; i < 50; i++) {
-		if (tempCapsulesWon != nullptr)
-			result += tempCapsulesWon[i]->getWorth();
+		if (tempCapsulesWon[i] != nullptr) {
+			result_cost += tempCapsulesWon[i]->getWorth();
+			result_worth += tempCapsulesWon[i]->CalculateRarity();
+		}
 	}
-	return result;
+	return result_worth - result_cost;
 }
 
 int Player::PrintANDchooseMachineIndex(GatchaMachine** machines) {
@@ -68,11 +78,11 @@ int Player::PrintANDchooseMachineIndex(GatchaMachine** machines) {
 		cout << "Machine " << i + 1 << "\t" << TextSeries(machines[i]->getTheme()) << "\t\t\tPrice " << machines[i]->getCapsuleCost() << endl;
 	}
 	int choice = -1;
-	while (choice < 0 || choice > 10) {
-		cout << "Please choose a machine (0- for exit): ";
+	while (choice < 0 || choice > 11) {
+		cout << "11- Balance." << endl << "Please choose a machine(0 - for exit) : ";
 		cin >> choice;
 	}
-	return choice-1;
+	return choice;
 }
 
 const char* Player::TextSeries(Series series) {

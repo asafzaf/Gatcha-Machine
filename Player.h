@@ -7,8 +7,6 @@
 
 //---        Player.h          ---//
 
-using namespace std;
-
 class Player {
 private:
 	string m_name;
@@ -21,8 +19,8 @@ public:
 	~Player();
 
 	//---       Methods       ---//
-	void PlayMachine(GatchaMachine& machine);
-	int CalculatEarning();
+	void PlayMachine(GatchaMachine* machine);
+	float CalculatEarning();
 	int PrintANDchooseMachineIndex(GatchaMachine** machines);
 	const char* TextSeries(Series series);
 
@@ -33,4 +31,5 @@ public:
 	void setMoney(int money) { m_money = money; }
 
 	Capsule** getCapsuleWon() { return m_capsulesWon; }
+	void setCapsulesWon(Capsule** capsules) { m_capsulesWon = capsules; }
 };

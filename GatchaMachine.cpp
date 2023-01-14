@@ -5,6 +5,7 @@
 
 //---        GatchaMachine.cpp          ---//
 
+using namespace std;
 
 GatchaMachine::GatchaMachine(Series theme, int cost) : ShellColor() {
 	m_theme = theme;
@@ -47,31 +48,18 @@ Capsule* GatchaMachine::RollForCapsule() {
 	while (tempCaps[randNum] == nullptr) {
 		randNum = rand() % 9;
 	}
-	return tempCaps[randNum];
+	Capsule* capsule = tempCaps[randNum];
+	tempCaps[randNum] = nullptr;
+	return capsule;
 } 
 
 void GatchaMachine::InsertCapsule(Capsule* capsule) {
-	int machine_cost = getCapsuleCost();
-	switch (capsule->getRarity())
-	{
-	case Common:
-		capsule->setWorth(machine_cost / 4);
-		break;
-	case Rare:
-		capsule->setWorth(machine_cost / 2);
-		break;
-	case Epic:
-		capsule->setWorth(machine_cost);
-		break;
-	case Legendary:
-		capsule->setWorth(machine_cost + (machine_cost/2) );
-		break;
-	default:
-		break;
-	}
+	
+	capsule->setWorth(getCapsuleCost());
+
 	Capsule** temp = getCapsulesArray();
 	int index = 0;
-	while (temp[index] == nullptr) {
+	while (temp[index] != nullptr) {
 		index++;
 	}
 	if (index == 9) {
@@ -82,8 +70,11 @@ void GatchaMachine::InsertCapsule(Capsule* capsule) {
 			index++;
 		}
 		temp[index] = capsule;
+		setExtrasArray(temp);
 	}
 	else {
 		temp[index] = capsule;
+		setCapsulesArray(temp);
 	}
+	
 }

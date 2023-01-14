@@ -17,5 +17,5 @@ public:
 	virtual ~Edible();
 
 	//---  Getters & Setters  ---//
-	virtual string getflavor() = 0;
+	virtual string getFlavor() = 0;
 };

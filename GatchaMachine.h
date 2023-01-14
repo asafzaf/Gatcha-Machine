@@ -30,8 +30,10 @@ public:
 	void setCapsuleCost(int cost) { m_capsuleCost = cost; }
 
 	Capsule** getCapsulesArray() { return m_capsules; }
+	void setCapsulesArray(Capsule** capsule) { m_capsules = capsule; }
 
 	Capsule** getExtrasArray() { return m_ExtraCapsules; }
+	void setExtrasArray(Capsule** capsule) { m_ExtraCapsules = capsule; }
 
-	string getColor() override { return m_color; }
+	string getColor() { return m_color; }
 };

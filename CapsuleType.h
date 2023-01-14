@@ -5,6 +5,6 @@
 //---        CapsuleType.h          ---//
 
 enum CapsuleType {
-	Candy,
-	Toy
+	T_Candy,
+	T_Toy
 };

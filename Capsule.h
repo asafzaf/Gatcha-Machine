@@ -2,10 +2,13 @@
 #include "Rarity.h"
 #include "CapsuleType.h"
 #include "ShellColor.h"
+#include <string>
 
 // This project made by Asaf Zafrir (205929029)
 
 //---        Capsule.h          ---//
+
+using namespace std;
 
 class Capsule : public ShellColor {
 protected:
@@ -18,7 +21,10 @@ public:
 	//---   C'tors & D'tors   ---//
 	Capsule(string name, Rarity rarity, CapsuleType type, string color);
 
+	//virtual Capsule& operator=(Capsule& capsule)=0;
+
 	//---       Methods       ---//
+	float CalculateRarity();
 
 	//---  Getters & Setters  ---//
 	string getName() { return m_name; }
@@ -26,7 +32,11 @@ public:
 	CapsuleType getType() { return m_type; }
 
 	Rarity getRarity() { return m_rarity; }
+	
+	string getColor() { return m_color; }
 
 	int getWorth() { return m_worth; }
 	void setWorth(int worth) { m_worth = worth; }
+
+	virtual void fff() = 0;
 };
